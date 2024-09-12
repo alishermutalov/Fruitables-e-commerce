@@ -9,9 +9,9 @@ This is a fully functional e-commerce website built with Django. It provides use
 - **Order Management**: Users can view their order history and track the status of their current orders.
 - **User Profiles**: Each user has a profile with address, phone number, and date of birth. Users can update their profile information.
 - **Multi-language Support**: The website supports multiple languages.
-- **Payment Integration**: The site uses the Payme provider to handle payments.
+- **Payment Integration**: The site uses the Stripe provider to handle payments.
 - **Responsive Design**: The website is fully responsive and works on all devices.
-- **Authentication**: Users can register, log in, and log out, with options for social login (Google and Facebook).
+- **Authentication**: Users can register, log in, and log out, with options for social login (Google).
 - **Admin Panel**: Admins can manage products, categories, users, and orders through the Django admin interface.
 
 ## Installation
