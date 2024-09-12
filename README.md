@@ -20,6 +20,32 @@ This is a fully functional e-commerce website built with Django. It provides use
    ```bash
    git clone https://github.com/yourusername/ecommerce-django.git
    cd ecommerce-django
+   
+2. **Create virtual environment**:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   
+3. **Install dependencies:**:
+   ```bash
+   pip install -r requirements.txt
+
+4. **Set up the database:**
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+
+5. **Create a superuser for admin access:**
+   ```bash
+   python manage.py createsuperuser
+   
+6. **Run the development server:**
+   ```bash
+   python manage.py runserver
+
+
+
+
 
 
 ### Notes:
