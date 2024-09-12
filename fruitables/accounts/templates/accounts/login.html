@@ -1,0 +1,61 @@
+{% load static %}
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="{% static 'css/account_style.css' %} " />
+</head>
+<body>
+  <div class="login_form">
+    <!-- Login form container -->
+    <h3><a href="{% url 'home' %}">Home</a></h3>
+    <h3>Log in with</h3>
+
+    <div class="login_option">
+      <!-- Google button -->
+      <div class="option">
+        <a href="{% provider_login_url 'google' %}">
+          <img src="{% static 'images/google-icon.png' %}" alt="Google" />
+          <span>Google</span>
+        </a>
+      </div>
+
+      <!-- Facebook button -->
+      <div class="option">
+        <a href="#">{% comment %} {% provider_login_url 'facebook' %} {% endcomment %}
+          <img src="{% static 'images/facebook.png' %}" alt="Facebook" />
+          <span>Facebook</span>
+        </a>
+      </div>
+    </div>
+    <!-- Login option separator -->
+    <p class="separator">
+      <span>or</span>
+    </p>
+    
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <!-- Email input box -->
+      <div class="input_box">
+        {{ form.username.label_tag }} {{ form.username }}
+      </div>
+
+      <!-- Password input box -->
+      <div class="input_box">
+        <div class="password_title">
+          {{ form.password.label_tag }} 
+          <a href="#">Forgot Password?</a>
+        </div>
+        
+        {{ form.password }}
+      </div>
+      <!-- Login button -->
+      <button type="submit">Log In</button>
+    </form>
+    <p class="sign_up">Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
+  </div>
+</body>
+</html>

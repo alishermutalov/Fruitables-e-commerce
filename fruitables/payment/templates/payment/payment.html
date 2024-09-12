@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Stripe.js -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .card-element {
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+        .card-errors {
+            color: red;
+            margin-top: 10px;
+        }
+        .payment-container {
+            max-width: 500px;
+            margin: 50px auto;
+        }
+        .payment-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #submit {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .alert {
+            display: none;
+            margin-top: 20px;
+            align-items: center;
+        }
+        .alert.show {
+            display: flex;
+        }
+        .alert i {
+            font-size: 24px;
+            margin-right: 10px;
+            animation: spin 1s ease-in-out;
+        }
+        .alert-success i {
+            color: #28a745;
+        }
+        .alert-danger i {
+            color: #dc3545;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container payment-container">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h4 class="payment-header"><a href="{% url 'home' %}">Home</a></h4>
+                <h4 class="payment-header">Complete Your Payment</h4>
+                <h4 class="payment-header">Total price: {{total_price}}$ </h4>
+                <form id="payment-form">
+                    <div class="mb-3">
+                        <label for="card-element" class="form-label">Card Details</label>
+                        <div id="card-element" class="card-element"></div>
+                        <div id="card-errors" class="card-errors"></div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button id="submit" class="btn btn-primary btn-block" type="submit">Pay Now</button>
+                    </div>
+                </form>
+                <div id="payment-success" class="alert alert-success">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Payment Successful!</span>
+                </div>
+                <div id="payment-failed" class="alert alert-danger">
+                    <i class="fas fa-times-circle"></i>
+                    <span>Payment Failed. Please try again.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+        var stripe = Stripe("{{ stripe_public_key }}");
+        var elements = stripe.elements();
+
+        var cardElement = elements.create('card');
+        cardElement.mount('#card-element');
+
+        var form = document.getElementById('payment-form');
+        var submitButton = document.getElementById('submit');
+        var errorMessage = document.getElementById('card-errors');
+        var successAlert = document.getElementById('payment-success');
+        var failedAlert = document.getElementById('payment-failed');
+
+        // Get CSRF token from Django's template
+        const csrfToken = "{{ csrf_token }}";
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            submitButton.disabled = true;
+            successAlert.classList.remove('show');
+            failedAlert.classList.remove('show');
+
+            // Fetch payment intent from the backend
+            const response = await fetch("{% url 'create_payment_intent' %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken,  // Include CSRF token here
+                },
+            });
+
+            const { clientSecret } = await response.json();
+
+            // Confirm the card payment
+            stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: cardElement
+                }
+            }).then(function(result) {
+                if (result.error) {
+                    // Show error to the user
+                    errorMessage.textContent = result.error.message;
+                    failedAlert.classList.add('show');
+                    submitButton.disabled = false;
+                } else {
+                    // Payment successful
+                    successAlert.classList.add('show');
+                    setTimeout(() => {
+                        successAlert.classList.remove('show');
+                    }, 3000); // Hide after 3 seconds
+                    window.location.href = "{% url 'profile_detail' %}"; 
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

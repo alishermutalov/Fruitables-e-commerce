@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-10 01:19+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\fruitables\settings.py:35
+msgid "Uzbek"
+msgstr ""
+
+#: .\fruitables\settings.py:36
+msgid "English"
+msgstr ""
+
+#: .\fruitables\settings.py:37
+msgid "Russian"
+msgstr ""
+
+#: .\templates\base.html:51
+msgid "Privacy Policy"
+msgstr ""
+
+#: .\templates\base.html:52
+msgid "Terms of Us"
+msgstr ""
+
+#: .\templates\base.html:53
+msgid "Sales and Refunds"
+msgstr ""
+
+#: .\templates\base.html:66
+msgid "Home"
+msgstr ""
+
+#: .\templates\base.html:67
+msgid "Shop"
+msgstr ""
+
+#: .\templates\base.html:71
+msgid "Pages"
+msgstr ""
+
+#: .\templates\base.html:74
+msgid "Cart"
+msgstr ""
+
+#: .\templates\base.html:76
+msgid "My Account"
+msgstr ""
+
+#: .\templates\base.html:83
+msgid "Languages"
+msgstr ""
+
+#: .\templates\base.html:97
+msgid "Contact"
+msgstr ""

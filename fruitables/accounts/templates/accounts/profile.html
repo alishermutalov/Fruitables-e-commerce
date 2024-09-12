@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% load i18n %}
+{% block content %}
+<!-- My Profile Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">{% blocktrans %}My Profile{% endblocktrans %} </h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">{% blocktrans %}Home{% endblocktrans %} </a></li>
+        <li class="breadcrumb-item active text-white">{% blocktrans %}My Profile{% endblocktrans %}</li>
+    </ol>
+</div>
+<!-- My Profile Page Header End -->
+
+<!-- Profile Section Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="row">
+            <!-- Customer Info Start -->
+            <div class="col-lg-4 mb-5">
+                <div class="bg-light p-4 rounded">
+                    <h3 class="mb-4">{% blocktrans %}Customer Information{% endblocktrans %} </h3>
+                    <p><strong>{% blocktrans %}Name{% endblocktrans %}:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+                    <p><strong>{% blocktrans %}Email{% endblocktrans %}:</strong> {{ user.email }}</p>
+                    <p><strong>{% blocktrans %}Address{% endblocktrans %}:</strong> {{ profile.address }}</p>
+                    <p><strong>{% blocktrans %}Phone{% endblocktrans %}:</strong> {{ profile.phone }}</p>
+                    <a href="{% url 'edit_profile' %}" class="btn btn-primary mt-4">{% blocktrans %}Edit Profile{% endblocktrans %}</a>
+                </div>
+            </div>
+            <!-- Customer Info End -->
+
+            <!-- Order History Start -->
+            <div class="col-lg-8">
+                <h3 class="mb-4">{% blocktrans %}Order History{% endblocktrans %}</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">{% blocktrans %}Order ID{% endblocktrans %}</th>
+                                <th scope="col">{% blocktrans %}Date{% endblocktrans %} </th>
+                                <th scope="col">{% blocktrans %}Total{% endblocktrans %} </th>
+                                <th scope="col">{% blocktrans %}Status{% endblocktrans %} </th>
+                                <th scope="col">{% blocktrans %}Payment Status{% endblocktrans %} </th>
+                                <th scope="col">{% blocktrans %}Details{% endblocktrans %} </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                            <tr>
+                                <td>{{ order.id }}</td>
+                                <td>{{ order.created_at|date:"Y-m-d" }}</td>
+                                <td>${{ order.total }}</td>
+                                <td>{{ order.get_status_display }}</td>
+                                {% if order.payment_status %}
+                                <td style="color: green;">{% blocktrans %}Paid{% endblocktrans %}</td>
+                                {% else %}
+                                <td style="color: red;">{% blocktrans %}Not Paid{% endblocktrans %} </td>
+                                {% endif %}
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-secondary">{% blocktrans %}View{% endblocktrans %} </a>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="5" class="text-center">{% blocktrans %}You haven't placed any orders yet.{% endblocktrans %} </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Order History End -->
+        </div>
+    </div>
+</div>
+<!-- Profile Section End -->
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+{% endblock content %}

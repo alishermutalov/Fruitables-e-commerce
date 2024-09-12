@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+{% load i18n %}
+{% block content %}
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">{% blocktrans %}Cart{% endblocktrans %} </h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">{% blocktrans %}Home{% endblocktrans %}</a></li>
+        <li class="breadcrumb-item active text-white">{% blocktrans %}Cart{% endblocktrans %}</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
+<!-- Cart Page Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">{% blocktrans %}Products{% endblocktrans %}</th>
+                        <th scope="col">{% blocktrans %}Name{% endblocktrans %}</th>
+                        <th scope="col">{% blocktrans %}Price{% endblocktrans %}</th>
+                        <th scope="col">{% blocktrans %}Quantity{% endblocktrans %}</th>
+                        <th scope="col">{% blocktrans %}Total{% endblocktrans %}</th>
+                        <th scope="col">{% blocktrans %}Handle{% endblocktrans %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cart_item in cart_items %}
+                    <tr>
+                        <th scope="row">
+                            <div class="d-flex align-items-center">
+                                {% if cart_item.product.photo %}
+                                <img src="{{cart_item.product.photo.url}}" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                {% endif %}
+                            </div>
+                        </th>
+                        <td>
+                            <p class="mb-0 mt-4">{{cart_item.product.product_name}}</p>
+                        </td>
+                        <td>
+                            {% if cart_item.product.discount %}
+                            <del>${{cart_item.product.price}} / {% blocktrans %}kg{% endblocktrans %}</del>
+                            <span class="discounted-price" style="color: red; font-weight: bold;">${{ cart_item.product.price|discounted_price:cart_item.product.discount }}</span>
+                            <span class="discount-percentage" style="color: green; font-size: smaller;">({{cart_item.product.discount}}{% blocktrans %}% off{% endblocktrans %})</span>
+                            {% else %}
+                            <p class="mb-0 mt-4 item-price">${{cart_item.product.price}}</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="input-group quantity mt-4" style="width: 100px;">
+                                 <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-minus rounded-circle bg-light border update-cart" data-action="decrease" data-cart-item-id="{{ cart_item.id }}">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div> 
+                                <input type="text" class="form-control form-control-sm text-center border-0" value="{{cart_item.quantity}}" readonly>
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-plus rounded-circle bg-light border update-cart" data-action="increase" data-cart-item-id="{{ cart_item.id }}">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div> 
+                            </div>
+                        </td>
+                        <td>
+                            <p class="mb-0 mt-4 item-total-price">
+                                {% if cart_item.product.discount %}
+                                {{ cart_item.quantity|multiply:cart_item.product.price|discounted_price:cart_item.product.discount }}$
+                                {% else %}
+                                {{ cart_item.get_total_price }}$
+                                {% endif %}
+                            </p>
+                        </td>
+                        <td>
+                            <button class="btn btn-md rounded-circle bg-light border mt-4 delete-cart-item" data-cart-item-id="{{ cart_item.id }}">
+                                <i class="fa fa-times text-danger"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-5">
+            <input type="text" class="border-0 border-bottom rounded me-5 py-3 mb-4" placeholder="Coupon Code">
+            <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button">{% blocktrans %}Apply Coupon{% endblocktrans %}</button>
+        </div>
+        <div class="row g-4 justify-content-end">
+            <div class="col-8"></div>
+            <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+                <div class="bg-light rounded">
+                    <div class="p-4">
+                        <h1 class="display-6 mb-4"><span class="fw-normal">{% blocktrans %}Total{% endblocktrans %}</span></h1>
+                        <div class="d-flex justify-content-between mb-4">
+                            <h5 class="mb-0 me-4">{% blocktrans %}Subtotal{% endblocktrans %}:</h5>
+                            <p class="mb-0 cart-total">${{total}}</p>
+                        </div>
+                    </div>
+                    <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
+                        <h5 class="mb-0 ps-4 me-4">{% blocktrans %}Total{% endblocktrans %}</h5>
+                        <p class="mb-0 cart-total pe-4">${{total}}</p>
+                    </div>
+                        <a href= "{% url 'payment_page' %}" id="proceed-checkout" class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">{% blocktrans %}Proceed Checkout{% endblocktrans %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Cart Page End -->
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+<!-- jQuery Script for Cart Actions -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // When the plus or minus button is clicked, update the cart quantity
+        $('.update-cart').click(function() {
+            var cartItemId = $(this).data('cart-item-id');  // Get the cart item ID
+            var action = $(this).data('action');  // Action (increase or decrease)
+            var $quantityInput = $(this).closest('.quantity').find('input');  // Quantity input field
+            var $totalPriceElement = $(this).closest('tr').find('.item-total-price');  // Total price element
+    
+            // Determine price per item and discount
+            var pricePerItem = parseFloat($(this).closest('tr').find('.discounted-price').text().replace('$', '')) || parseFloat($(this).closest('tr').find('.item-price').text().replace('$', ''));
+            var discount = parseFloat($(this).closest('tr').find('.discount-percentage').text().replace('%', '')) || 0;
+    
+            // Make the AJAX request to update the quantity
+            $.ajax({
+                url: '{% url "update_cart_quantity" %}',  // URL to handle quantity updates
+                method: 'POST',
+                data: {
+                    'cart_item_id': cartItemId,
+                    'action': action,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    if (response.success) {
+                        if (response.removed) {
+                            // If the item was removed from the cart (quantity = 0), remove the row
+                            $quantityInput.closest('tr').remove();
+                        } else {
+                            // Update the quantity input field
+                            $quantityInput.val(response.quantity);
+    
+                            // Calculate effective price considering discount
+                            var effectivePrice = discount > 0 ? pricePerItem * (1 - discount / 100) : pricePerItem;
+                            var newTotalPrice = response.quantity * effectivePrice;
+    
+                            // Update the total price element for this cart item
+                            $totalPriceElement.text(newTotalPrice.toFixed(2) + '$');
+                        }
+    
+                        // Update the cart total
+                        updateCartTotal();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error updating cart quantity:', status, error);
+                }
+            });
+        });
+    
+        // Function to update the cart total
+        function updateCartTotal() {
+            var total = 0;
+    
+            // Sum up all item total prices
+            $('.item-total-price').each(function() {
+                var itemTotal = parseFloat($(this).text().replace('$', ''));
+                total += itemTotal;
+            });
+    
+            // Update the total amount in the cart summary
+            $('.cart-total').text('$' + total.toFixed(2));
+    
+            // Debugging line
+            console.log('Updated Cart Total:', total.toFixed(2));
+        }
+    });
+    
+</script>
+
+{% endblock content %}

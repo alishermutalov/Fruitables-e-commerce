@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static 'css/register_style.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="text">
+            <a href="{% url 'home' %}"><h2>Home</h2></a>
+        </div>
+        <h2>Registration</h2>
+        <form method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="input-box">
+                {% comment %} <input type="text" name="username" id="{{ form.username.id_for_label }}" placeholder="Enter your username" class="form-control" value="{{ form.username.value|default_if_none:'' }}">
+                <label for="{{ form.username.id_for_label }}">Enter your username</label> {% endcomment %}
+                {{form.username}}
+                <div class="error">{{ form.username.errors }}</div>
+            </div>
+            <div class="input-box">
+                {% comment %} <input type="email" name="email" id="{{ form.email.id_for_label }}" placeholder="Enter your email" class="form-control" value="{{ form.email.value|default_if_none:'' }}">
+                <label for="{{ form.email.id_for_label }}">Enter your email</label> {% endcomment %}
+                {{form.email}}
+                <div class="error">{{ form.email.errors }}</div>
+            </div>
+            <div class="input-box">
+                {% comment %} <input type="password" name="password1" id="{{ form.password1.id_for_label }}" placeholder="Create password" class="form-control">
+                <label for="{{ form.password1.id_for_label }}">Create password</label> {% endcomment %}
+                {{ form.password1 }}
+                <div class="error">{{ form.password1.errors }}</div>
+            </div>
+            <div class="input-box">
+                {% comment %} <input type="password" name="password2" id="{{ form.password2.id_for_label }}" placeholder="Confirm password" class="form-control">
+                <label for="{{ form.password2.id_for_label }}">Confirm password</label> {% endcomment %}
+                {{ form.password2 }}
+                <div class="error">{{ form.password2.errors }}</div>
+            </div>
+            {% comment %} <div class="policy">
+                <input type="checkbox" name="agree_to_terms" id="{{ form.agree_to_terms.id_for_label }}">
+                <label for="{{ form.agree_to_terms.id_for_label }}">I accept all terms & condition</label>
+            </div> {% endcomment %}
+            <div class="input-box button">
+                <input type="submit" value="Register Now">
+            </div>
+            <div class="text">
+                <h3>Already have an account? <a href="{% url 'login' %}">Login now</a></h3>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

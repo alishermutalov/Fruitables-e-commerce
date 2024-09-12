@@ -1,0 +1,561 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-12 22:30+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\accounts\templates\accounts\profile.html:8
+#: .\accounts\templates\accounts\profile.html:11
+msgid "My Profile"
+msgstr "Мой профиль"
+
+#: .\accounts\templates\accounts\profile.html:10
+#: .\home\templates\home\404.html:14 .\home\templates\home\cart.html:10
+#: .\home\templates\home\contact.html:11
+#: .\home\templates\home\shop-detail.html:10 .\home\templates\home\shop.html:11
+#: .\templates\base.html:66
+msgid "Home"
+msgstr "Главная"
+
+#: .\accounts\templates\accounts\profile.html:23
+msgid "Customer Information"
+msgstr "Информация о клиенте"
+
+#: .\accounts\templates\accounts\profile.html:24
+msgid "Name"
+msgstr "Имя"
+
+
+
+#: .\accounts\templates\accounts\profile.html:25 .\templates\base.html:226
+msgid "Email"
+msgstr "Электронная почта"
+
+#: .\accounts\templates\accounts\profile.html:26
+#: .\home\templates\home\contact.html:48 .\templates\base.html:225
+msgid "Address"
+msgstr "Адрес"
+
+#: .\accounts\templates\accounts\profile.html:27 .\templates\base.html:227
+msgid "Phone"
+msgstr "Телефон"
+
+#: .\accounts\templates\accounts\profile.html:28
+msgid "Edit Profile"
+msgstr "Редактировать профиль"
+
+#: .\accounts\templates\accounts\profile.html:35 .\templates\base.html:218
+msgid "Order History"
+msgstr "История заказов"
+
+#: .\accounts\templates\accounts\profile.html:40
+msgid "Order ID"
+msgstr "ID заказа"
+
+#: .\accounts\templates\accounts\profile.html:41
+msgid "Date"
+msgstr "Дата"
+
+#: .\accounts\templates\accounts\profile.html:42
+#: .\home\templates\home\cart.html:27 .\home\templates\home\cart.html:96
+#: .\home\templates\home\cart.html:103
+msgid "Total"
+msgstr "Общий"
+
+#: .\accounts\templates\accounts\profile.html:43
+msgid "Status"
+msgstr "Статус"
+
+#: .\accounts\templates\accounts\profile.html:44
+msgid "Payment Status"
+msgstr "Статус платежа"
+
+#: .\accounts\templates\accounts\profile.html:45
+#, fuzzy
+#| msgid "Detail"
+msgid "Details"
+msgstr "Подробнее"
+
+#: .\accounts\templates\accounts\profile.html:56
+msgid "Paid"
+msgstr "Оплаченный"
+
+#: .\accounts\templates\accounts\profile.html:58
+msgid "Not Paid"
+msgstr "Не оплачено"
+
+#: .\accounts\templates\accounts\profile.html:61
+msgid "View"
+msgstr "Посмотреть"
+
+#: .\accounts\templates\accounts\profile.html:66
+msgid "You haven't placed any orders yet."
+msgstr "Вы еще не разместили ни одного заказа."
+
+#: .\fruitables\settings.py:37 .\templates\base.html:91
+msgid "Uzbek"
+msgstr ""
+
+#: .\fruitables\settings.py:38 .\templates\base.html:93
+msgid "English"
+msgstr ""
+
+#: .\fruitables\settings.py:39 .\templates\base.html:92
+msgid "Russian"
+msgstr ""
+
+#: .\home\templates\home\404.html:12
+msgid "404 Error"
+msgstr "Ошибка 404"
+
+#: .\home\templates\home\404.html:28
+msgid "Page Not Found"
+msgstr "Страница не найдена"
+
+#: .\home\templates\home\404.html:29
+msgid ""
+"We’re sorry, the page you have looked for does not exist in our website! "
+"Maybe go to our home page or try to use a search?"
+msgstr ""
+"Извините, страница, которую вы искали, не существует на нашем сайте! Может "
+"быть, зайдите на нашу домашнюю страницу или попробуйте воспользоваться "
+"поиском?"
+
+#: .\home\templates\home\404.html:30
+msgid "Go Back To Home"
+msgstr "Вернуться домой"
+
+#: .\home\templates\home\cart.html:8 .\home\templates\home\cart.html:11
+#: .\templates\base.html:74
+msgid "Cart"
+msgstr "Корзина"
+
+#: .\home\templates\home\cart.html:23
+msgid "Products"
+msgstr "продукты"
+
+#: .\home\templates\home\cart.html:25 .\home\templates\home\shop.html:61
+msgid "Price"
+msgstr "Цена"
+
+#: .\home\templates\home\cart.html:26
+msgid "Quantity"
+msgstr "Количество"
+
+#: .\home\templates\home\cart.html:28
+msgid "Handle"
+msgstr "Ручка"
+
+#: .\home\templates\home\cart.html:46 .\home\templates\home\index.html:164
+#: .\home\templates\home\index.html:172 .\home\templates\home\index.html:262
+#: .\home\templates\home\index.html:266 .\home\templates\home\index.html:302
+#: .\home\templates\home\shop-detail.html:34
+#: .\home\templates\home\shop-detail.html:42
+#: .\home\templates\home\shop-detail.html:97
+#: .\home\templates\home\shop-detail.html:129
+#: .\home\templates\home\shop-detail.html:389
+#: .\home\templates\home\shop.html:148 .\home\templates\home\shop.html:152
+msgid "kg"
+msgstr "кг"
+
+#: .\home\templates\home\cart.html:48 .\home\templates\home\index.html:169
+#: .\home\templates\home\index.html:264
+#: .\home\templates\home\shop-detail.html:39
+#, python-format
+msgid "%% off"
+msgstr "%% скидка"
+
+#: .\home\templates\home\cart.html:89
+msgid "Apply Coupon"
+msgstr "Применить купон"
+
+#: .\home\templates\home\cart.html:98
+msgid "Subtotal"
+msgstr "Промежуточный итог"
+
+#: .\home\templates\home\cart.html:106
+msgid "Proceed Checkout"
+msgstr "Продолжить оформление заказа"
+
+#: .\home\templates\home\contact.html:9 .\home\templates\home\contact.html:12
+#: .\templates\base.html:98 .\templates\base.html:224
+msgid "Contact"
+msgstr "Контакт"
+
+#: .\home\templates\home\contact.html:25
+msgid "Get in touch"
+msgstr "Свяжитесь с нами"
+
+#: .\home\templates\home\contact.html:38
+msgid "Your Name"
+msgstr "Ваше имя"
+
+#: .\home\templates\home\contact.html:39
+msgid "Enter Your Email"
+msgstr "Ваш адрес электронной почты"
+
+#: .\home\templates\home\contact.html:40
+msgid "Your Message"
+msgstr "Ваше сообщение"
+
+#: .\home\templates\home\contact.html:41
+msgid "Submit"
+msgstr "Отправить"
+
+#: .\home\templates\home\contact.html:55
+msgid "Mail Us"
+msgstr "Напишите нам"
+
+#: .\home\templates\home\contact.html:62
+msgid "Telephone"
+msgstr "Телефон"
+
+#: .\home\templates\home\index.html:13
+#, python-format
+msgid "100%% Organic Foods"
+msgstr "100%% Органические Продукты"
+
+#: .\home\templates\home\index.html:14
+msgid "Organic Veggies & Fruits Foods"
+msgstr "Органические овощи и фрукты"
+
+#: .\home\templates\home\index.html:17
+msgid "Submit Now"
+msgstr "Отправить"
+
+#: .\home\templates\home\index.html:36
+msgid "No Categories"
+msgstr "Нет категорий"
+
+#: .\home\templates\home\index.html:42 .\home\templates\home\index.html:193
+msgid "Previous"
+msgstr "Предыдущий"
+
+#: .\home\templates\home\index.html:46 .\home\templates\home\index.html:201
+msgid "Next"
+msgstr "Следующий"
+
+#: .\home\templates\home\index.html:65
+msgid "Free Shipping"
+msgstr "Бесплатная доставка"
+
+#: .\home\templates\home\index.html:66
+msgid "Free on order over $300"
+msgstr "Бесплатно при заказе свыше 300 долларов"
+
+#: .\home\templates\home\index.html:76
+msgid "Security Payment"
+msgstr "Безопасность платежа"
+
+#: .\home\templates\home\index.html:77
+#, python-format
+msgid "100%% security payment"
+msgstr "100%% гарантия платежа"
+
+#: .\home\templates\home\index.html:87
+msgid "30 Day Return"
+msgstr "30 дней возврат"
+
+#: .\home\templates\home\index.html:88
+msgid "30 day money guarantee"
+msgstr "30-дневная денежная гарантия"
+
+#: .\home\templates\home\index.html:98
+msgid "24/7 Support"
+msgstr "24/7 Поддержка"
+
+#: .\home\templates\home\index.html:99
+msgid "Support every time fast"
+msgstr "Поддержка всегда быстрая"
+
+#: .\home\templates\home\index.html:114
+msgid "Our Organic Products"
+msgstr "Наши органические продукты"
+
+#: .\home\templates\home\index.html:121
+msgid "All Products"
+msgstr "Все продукты"
+
+#: .\home\templates\home\index.html:178 .\home\templates\home\index.html:270
+#: .\home\templates\home\shop-detail.html:69
+#: .\home\templates\home\shop-detail.html:390
+#: .\home\templates\home\shop.html:156
+msgid "Add to cart"
+msgstr "Добавить"
+
+#: .\home\templates\home\index.html:180
+msgid "Detail"
+msgstr "Подробнее"
+
+#: .\home\templates\home\index.html:228
+#, python-format
+msgid "%% OFF"
+msgstr "%% СКИДКА"
+
+#: .\home\templates\home\index.html:245
+msgid "Fresh Organic Vegetables"
+msgstr "Свежие органические овощи"
+
+#: .\home\templates\home\index.html:289
+msgid "Fresh Exotic Fruits"
+msgstr "Свежие экзотические фрукты"
+
+#: .\home\templates\home\index.html:290
+msgid "in Our Store"
+msgstr "в нашем магазине"
+
+#: .\home\templates\home\index.html:291
+msgid "Discover unique, vibrant fruits with exceptional flavors and freshness."
+msgstr ""
+"Откройте для себя уникальные, яркие фрукты с исключительным вкусом и "
+"свежестью."
+
+#: .\home\templates\home\index.html:292
+msgid "BUY"
+msgstr "КУПИТЬ"
+
+#: .\home\templates\home\shop-detail.html:8
+#: .\home\templates\home\shop-detail.html:11
+msgid "Shop Detail"
+msgstr "Подробности продукта"
+
+#: .\home\templates\home\shop-detail.html:32
+#, fuzzy
+#| msgid "Categories"
+msgid "Category"
+msgstr "Категории"
+
+#: .\home\templates\home\shop-detail.html:79
+msgid "Description"
+msgstr "Описание"
+
+#: .\home\templates\home\shop-detail.html:94
+msgid "Weight"
+msgstr "Масса"
+
+#: .\home\templates\home\shop-detail.html:102
+msgid "Country of Origin"
+msgstr "Страна происхождения"
+
+#: .\home\templates\home\shop-detail.html:110
+msgid "Quality"
+msgstr "Качество"
+
+#: .\home\templates\home\shop-detail.html:113
+#: .\home\templates\home\shop.html:71
+msgid "Organic"
+msgstr "Органический"
+
+#: .\home\templates\home\shop-detail.html:118
+msgid "Сheck"
+msgstr "Проверено"
+
+#: .\home\templates\home\shop-detail.html:121
+msgid "Healthy"
+msgstr "Здоровый"
+
+#: .\home\templates\home\shop-detail.html:126
+msgid "Min Weight"
+msgstr "Мин. вес"
+
+#: .\home\templates\home\shop-detail.html:229
+#: .\home\templates\home\shop.html:46
+msgid "Categories"
+msgstr "Категории"
+
+#: .\home\templates\home\shop-detail.html:367
+#, fuzzy
+#| msgid "Fresh"
+msgid "Fresh "
+msgstr "Свежий"
+
+#: .\home\templates\home\shop-detail.html:367
+msgid "Fruits"
+msgstr "Фрукты"
+
+#: .\home\templates\home\shop-detail.html:374
+msgid "Related products"
+msgstr "Сопутствующие товары"
+
+#: .\home\templates\home\shop.html:9 .\home\templates\home\shop.html:12
+#: .\templates\base.html:67
+msgid "Shop"
+msgstr "Магазин"
+
+#: .\home\templates\home\shop.html:21
+msgid "Fresh fruits shop"
+msgstr "Магазин свежих фруктов"
+
+#: .\home\templates\home\shop.html:34
+msgid "Default Sorting"
+msgstr "Сортировка по умолчанию"
+
+#: .\home\templates\home\shop.html:36
+msgid "Nothing"
+msgstr "Ничего"
+
+#: .\home\templates\home\shop.html:68
+msgid "Additional"
+msgstr "Дополнительный"
+
+#: .\home\templates\home\shop.html:75
+msgid "Fresh"
+msgstr "Свежий"
+
+#: .\home\templates\home\shop.html:79
+msgid "Sales"
+msgstr "Продажи"
+
+#: .\home\templates\home\shop.html:83
+msgid "Discount"
+msgstr "Скидка"
+
+#: .\home\templates\home\shop.html:87
+msgid "Expired"
+msgstr "Истекший"
+
+#: .\home\templates\home\shop.html:92
+#, fuzzy
+#| msgid "Fresh products"
+msgid "Featured products"
+msgstr "Свежие продукты"
+
+#: .\home\templates\home\shop.html:117
+msgid "View More"
+msgstr "Посмотреть больше"
+
+#: .\templates\base.html:51 .\templates\base.html:205
+msgid "Privacy Policy"
+msgstr "политика конфиденциальности"
+
+#: .\templates\base.html:52
+msgid "Terms of Use"
+msgstr "Условия эксплуатации"
+
+#: .\templates\base.html:53
+msgid "Sales and Refunds"
+msgstr "Продажи и возвраты"
+
+#: .\templates\base.html:71
+msgid "Pages"
+msgstr "Страницы"
+
+#: .\templates\base.html:76 .\templates\base.html:214
+msgid "My Account"
+msgstr "Мой аккаунт"
+
+#: .\templates\base.html:84
+msgid "Languages"
+msgstr "Язык"
+
+#: .\templates\base.html:129
+msgid "Register/Login"
+msgstr "Регистрация/Войти"
+
+#: .\templates\base.html:145
+msgid "Search by keyword"
+msgstr "Поиск по ключевому слову"
+
+#: .\templates\base.html:170
+msgid "Fresh products"
+msgstr "Свежие продукты"
+
+#: .\templates\base.html:175
+msgid "Your Email"
+msgstr "Ваш адрес электронной почты"
+
+#: .\templates\base.html:176
+msgid "Subscribe Now"
+msgstr "Подпишитесь сейчас"
+
+#: .\templates\base.html:192
+msgid "Why People Like us!"
+msgstr "Почему мы нравимся людям!"
+
+#: .\templates\base.html:193
+msgid ""
+"People love shopping with us for our top-quality\n"
+"                             products and outstanding service. We offer a "
+"diverse selection \n"
+"                             and a seamless experience, ensuring your "
+"satisfaction every time.\n"
+"                             Join our community and see why we're a favorite!"
+msgstr ""
+"Люди любят делать покупки у нас за наши качественные продукты и выдающееся "
+"обслуживание. Мы предлагаем разнообразный ассортимент и удобный опыт "
+"покупок, что гарантирует ваше удовлетворение. Присоединяйтесь к нашему "
+"сообществу и узнайте, почему нас так любят!"
+
+#: .\templates\base.html:202
+#, fuzzy
+#| msgid "Shop"
+msgid "Shop Info"
+msgstr "Магазин"
+
+#: .\templates\base.html:203
+msgid "About Us"
+msgstr "О нас"
+
+#: .\templates\base.html:204
+#, fuzzy
+#| msgid "Contact"
+msgid "Contact Us"
+msgstr "Контакт"
+
+#: .\templates\base.html:206
+msgid "Terms & Condition"
+msgstr "Условия и положения"
+
+#: .\templates\base.html:207
+msgid "Return Policy"
+msgstr "Политика возврата"
+
+#: .\templates\base.html:208
+msgid "FAQs & Help"
+msgstr "Часто задаваемые вопросы и помощь"
+
+#: .\templates\base.html:213
+#, fuzzy
+#| msgid "My Account"
+msgid "Account"
+msgstr "Мой аккаунт"
+
+#: .\templates\base.html:215
+msgid "Shop details"
+msgstr "Подробности магазина"
+
+#: .\templates\base.html:216
+msgid "Shopping Cart"
+msgstr ""
+
+#: .\templates\base.html:217
+msgid "Wishlist"
+msgstr "Список пожеланий"
+
+#: .\templates\base.html:219
+msgid "International Orders"
+msgstr "Международные заказы"
+
+#: .\templates\base.html:228
+msgid "Payment Accepted"
+msgstr "Платежные системы"
+
+#: .\templates\base.html:242
+msgid "All right reserved."
+msgstr "Все права защищены."
