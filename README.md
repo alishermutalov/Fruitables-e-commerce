@@ -42,12 +42,7 @@ This is a fully functional e-commerce website built with Django. It provides use
 6. **Run the development server:**
    ```bash
    python manage.py runserver
-
-
-
-
-
-
+   
 ### Notes:
 - Customize this template to match the specific details of your project.
 - Add any additional features or functionalities your project may include.
