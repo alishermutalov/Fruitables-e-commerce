@@ -86,7 +86,7 @@ LOGOUT_REDIRECT_URL = 'home'  # Redirect after logout
 LOCALE_PATHS = BASE_DIR , 'locale' 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://618c-193-104-179-131.ngrok-free.app',
+    
 ]
 
 
