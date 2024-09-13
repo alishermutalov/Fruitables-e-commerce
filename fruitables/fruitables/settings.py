@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-+1q2ivf#e(*fs_33*zy2fb-w&u1qf3q7wt8d2ul!!7vpp%rz@4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1',"618c-193-104-179-131.ngrok-free.app"]
+ALLOWED_HOSTS = []
 
 
 
@@ -185,8 +185,8 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Optional, can also be 'email
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
-            'client_id': '1055091257269-9b0rv17mhakv6lu7t993cb50vlqletku.apps.googleusercontent.com',
-            'secret': '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',
+            'client_id': 'CLIENT_ID',
+            'secret': 'SECRET',
             'key': ''
         }
     }
